@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Fill this Form </h2>
+<div class="jumbotron">
+  <form method="post" action="{% url 'app:contact'%}">
+    {% csrf_token %}
+    <!-- <label for="name">Enter Your Name:</label> -->
+    <input type="text" name="name" placeholder="Enter Your Name" style="padding:15px;width:100%;border-radius:24px;border:2px solid rgba(255,90,0,1);margin-bottom:10px;"><br>
+    <!-- <label for="email">Enter Your Email:</label> -->
+    <input type="email" name="email" placeholder="Enter Your Email" style="padding:15px;width:100%;border-radius:24px;border:2px solid rgba(255,90,0,1);margin-bottom:10px;"><br>
+    <!-- <label for="pno">Enter Your Phone Number:</label> -->
+    <input type="text" name="pno" placeholder="Enter Your Phone Number" style="padding:15px;width:100%;border-radius:24px;border:2px solid rgba(255,90,0,1);margin-bottom:10px;"><br>
+    <!-- <label for="message">Enter Your Message or query:</label> -->
+    <textarea name="message" placeholder="Enter Your Message or query" style="padding:15px;width:100%;border-radius:24px;border:2px solid rgba(255,90,0,1);margin-bottom:10px;"></textarea><br>
+    <center><input type="submit" value="submit" style="padding:10px;border-radius:24px;background-color:rgba(255,90,0,1);border:2px solid rgba(255,90,0,1);color:white;margin-top:10px;"></center>
+  </form>
+</div>
+<div class="container">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2263.3681327040654!2d78.5934434808162!3d17.434985691693587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9c274ee16667%3A0x43deee801ad67912!2sKranti%20Colony%2C%20Telephone%20Colony%2C%20Chengicherla%2C%20Secunderabad%2C%20Telangana%20500098!5e0!3m2!1sen!2sin!4v1593058626945!5m2!1sen!2sin" frameborder="0" style="border:0;height:60vh;width:100%;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+</div>
+{% endblock %}

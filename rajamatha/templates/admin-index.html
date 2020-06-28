@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css'%}">
+     <style>
+     .gallry-a
+     {
+     	color:#ff6600;
+     	display: block;
+     	padding:10px 0;
+     }
+     .gallry-a:hover
+     {
+     		color:black;
+     		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-decoration:none;
+     }
+     </style>
+  </head>
+  <body>
+    <div class="jumbotron">
+        <h6><a href="/" class="btn btn-info"><-- Back</a></h6>
+        <center><h1 style="">Admin Panel</h1></center>
+        <ul style="background-color:white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);list-style-type:none;text-align:center;margin-top:50px;padding:10px 0;">
+            <li style="margin:10px 0;"><a href="{% url 'app:admin_about'%}" class="gallry-a">About Us Goals</a></li>
+            <li style="margin:10px 0;"><a href="{% url 'app:admin_events'%}" class="gallry-a">Latest Evenets</a></li>
+            <li style="margin:10px 0;"><a href="{% url 'app:admin_core_team'%}" class="gallry-a"> Our Core Team</a></li>
+            <li style="margin:10px 0;"><a href="{% url 'app:admin_supporters'%}" class="gallry-a">Our Supporters</a></li>
+            <li style="margin:10px 0;"><a href="{% url 'app:update_why_choose_us'%}" class="gallry-a">Update Why Choose Us theme</a></li>
+            <li style="margin:10px 0;"><a href="{% url 'app:admin_gallary'%}" class="gallry-a">Gallary</a></li>
+            <li style="margin:10px 0;"><a href="{% url 'app:admin_achivements'%}" class="gallry-a">Achivements</a></li>
+            <li style="margin:10px 0;"><a href="{% url 'app:update_count'%}" class="gallry-a">Update Count Numbers</a></li>
+            <li style="margin:10px 0;"><a href="{% url 'app:admin_ngo'%}" class="gallry-a">NGO partners</a></li>
+            <li style="margin:10px 0;"><a href="{% url 'app:admin_social'%}" class="gallry-a">Social Media partners</a></li>
+            <li style="margin:10px 0;"><a href="{% url 'app:update_banner_image'%}" class="gallry-a">Update Banner Image(HOme Page)</a></li>
+            <li style="margin:10px 0;"><a href="{% url 'app:admin_testmonial'%}" class="gallry-a">Testmonials</a></li>
+        </ul>
+        <center><h1 style="margin-top:20px;">Notifications</h1></center>
+        {% for notification in notifications%}
+          <div style="background-color:white;display:block;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);padding:10px 40px;margin-top:20px;">
+            <table class="table" style="table-layout:fixed;word-wrap: break-word;">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" style="color:#003366">Name</th>
+                  <td style="color:#ff6600">{{notification.name}}</td>
+                </tr>
+                <tr>
+                  <th scope="row" style="color:#003366">Email</th>
+                  <td style="color:#ff6600">{{notification.email}}</td>
+                </tr>
+                <tr>
+                  <th scope="row" style="color:#003366">Contact No</th>
+                  <td style="color:#ff6600">{{notification.phone}}</td>
+                </tr>
+                <tr>
+                  <th scope="row" style="color:#003366">Message</th>
+                  <td style="color:#ff6600">{{notification.message}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <a href="{% url 'app:delete_notification' notification.id %}" class="btn btn-danger">Delete Notification</a>
+          </div>
+        {% endfor %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Core Team</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css'%}">  </head>
+  <body>
+  <div class="jumbotron">
+    <div class="container">
+      <h6><a href="{% url 'app:admin_panel'%}" class="btn btn-info"><-- Back</a></h6>
+      <center><a href="{% url 'app:create_social'%}" class="btn btn-primary" style="margin-top:20px;">Create NGO Partner</a></center>
+      <div class="row">
+        {% for member in members%}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card" style="margin-top:20px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <img class="card-img-top" src="{{member.image.url}}" alt="Card image cap" style="height:calc(100vh/2);">
+            <div class="card-body">
+              <h5 class="card-title">{{member.title}}</h5>
+            </div>
+            <div class="card-body">
+              <a href="{% url 'app:update_social' member.id%}" class="btn btn-warning card-link">Update</a>
+              <a href="{% url 'app:delete_social' member.id%}" class="btn btn-danger card-link">Delete</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+    <div class="jumbotron">
+      <div>
+        <img src="{% static 'images/UPI-11.38.05-AM.jpg'%}" alt="" style="max-width:100%;max-height:100%;">
+      </div>
+        <center><h1 style="color:#003366;font-family:'AllertaStencil-Regular';margin-top:10px;">Pay Number:</h1></center>
+        <center><h1 style="color:#ff6600;font-family:'AllertaStencil-Regular';margin-top:10px;">9030669271</h1></center>
+      <!-- Trigger the modal with a button -->
+<center><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="margin-top:10px;">QR Code</button></center>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <img src="{% static 'images/payments.png'%}" style="max-width:100%;max-height:100%;">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  </div>
+</div>
+    </div>
+{% endblock %}

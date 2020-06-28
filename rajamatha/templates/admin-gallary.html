@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css'%}">     <style>
+     .gallry-a
+     {
+     	color:#ff6600;
+     	display: block;
+     	padding:10px 0;
+     }
+     .gallry-a:hover
+     {
+     		color:#003366;
+     		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-decoration:none;
+     }
+     </style>
+  </head>
+  <body>
+<div class="jumbotron">
+	<div class="container">
+    <h6><a href="{% url 'app:admin_panel'%}" class="btn btn-info"><-- Back</a></h6>
+			<center><h2 style="font-family:AllertaStencil-Regular;color:#003366;">Gallary</h2></center>
+			<ul style="background-color:white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);list-style-type:none;text-align:center;margin-top:50px;padding:10px 0;">
+				{% for type in types %}
+					<li style="margin:10px 0;"><a href="{% url 'app:admin_gallary_detail' type.title%}" class="gallry-a">{{type.title | upper}}</a></li>
+				{% endfor %}
+			</ul>
+	</div>
+</div>
+</body>
+</html>
